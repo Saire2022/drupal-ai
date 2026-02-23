@@ -24,7 +24,8 @@
         "drupal/core-recipe-unpack": "^11.2",
         "drupal/core-recommended": "^11.2",
         "drupal/gemini_provider": "^1.0@beta",
-        "drush/drush": "^13.6"
+        "drush/drush": "^13.6",
+        "lullabot/drainpipe": "^4.0"
     },
     "conflict": {
         "drupal/drupal": "*"
@@ -34,13 +35,15 @@
     "config": {
         "allow-plugins": {
             "composer/installers": true,
-            "drupal/core-composer-scaffold": true,
-            "drupal/core-recipe-unpack": true,
-            "drupal/core-project-message": true,
-            "phpstan/extension-installer": true,
             "dealerdirect/phpcodesniffer-composer-installer": true,
+            "drupal/core-composer-scaffold": true,
+            "drupal/core-project-message": true,
+            "drupal/core-recipe-unpack": true,
+            "lullabot/drainpipe": true,
+            "lullabot/drainpipe-dev": true,
             "php-http/discovery": true,
-            "php-tuf/composer-integration": true
+            "php-tuf/composer-integration": true,
+            "phpstan/extension-installer": true
         },
         "sort-packages": true
     },
@@ -48,7 +51,9 @@
         "drupal-scaffold": {
             "locations": {
                 "web-root": "web/"
-            }
+            },
+            "gitignore": "true",
+            "allowed-packages": ["lullabot/drainpipe", "lullabot/drainpipe-dev"]
         },
         "installer-paths": {
             "web/core": [
@@ -103,5 +108,8 @@
                 "      composer remove drupal/core-project-message"
             ]
         }
+    },
+    "require-dev": {
+        "lullabot/drainpipe-dev": "^4.0"
     }
 }
